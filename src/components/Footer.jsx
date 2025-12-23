@@ -1,7 +1,10 @@
+import './Footer.css'
+
 function Footer() {
   return (
-    <footer style={{ padding: '2rem', textAlign: 'center', background: '#f5f5f5', marginTop: '4rem' }}>
-      <p>© 2025 Nhoni Network - Création digitale & visuelle</p>
+    <footer className="footer">
+      <p>© 2024 Nhoni Network - Création digitale & visuelle</p>
+      <p>📞 07 66 10 61 57 | ✉️ contact@nhoni.network</p>
     </footer>
   )
 }
