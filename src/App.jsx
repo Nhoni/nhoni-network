@@ -1,12 +1,27 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Services from './pages/Services'
+import Portfolio from './pages/Portfolio'
+import About from './pages/About'
+import Contact from './pages/Contact'
+
 function App() {
   return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <h1>Nhoni Network</h1>
-      <p>Création digitale & visuelle</p>
-      <p style={{ fontSize: '0.9rem', color: '#666' }}>
-        Site en construction...
-      </p>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <main style={{ minHeight: '70vh', padding: '2rem' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+      <Footer />
+    </BrowserRouter>
   )
 }
 
