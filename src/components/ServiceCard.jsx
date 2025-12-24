@@ -1,4 +1,4 @@
-import './ServiceCard.css'
+import '../styles/components/ServiceCard.css'
 
 function ServiceCard({ icon, title, description }) {
   return (

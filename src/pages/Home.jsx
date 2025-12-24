@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import ServiceCard from '../components/ServiceCard'
-import './Home.css'
+import '../styles/pages/Home.css'
 
 function Home() {
   return (

@@ -1,4 +1,4 @@
-import './Button.css'
+import '../styles/components/Button.css'
 
 function Button({ children, variant = 'primary', onClick, href }) {
   const className = `button button-${variant}`
