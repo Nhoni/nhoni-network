@@ -1,0 +1,221 @@
+.contact-page {
+  width: 100%;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.contact-header h1 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  color: var(--gray-dark);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Layout 2 colonnes */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Infos de contact */
+.contact-info {
+  background: var(--gray-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+}
+
+.contact-info h2 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background: var(--white);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+.contact-details h3 {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact-details p {
+  color: var(--gray-dark);
+  margin: 0;
+}
+
+.contact-details a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+/* Horaires */
+.contact-hours {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--primary);
+}
+
+.contact-hours h3 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-hours p {
+  margin: 0.5rem 0;
+  color: var(--gray-dark);
+}
+
+/* Formulaire */
+.contact-form {
+  background: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-form h2 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  color: var(--primary-dark);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--gray-medium);
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-submit {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-submit:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.form-submit:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Message de succès */
+.form-message {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-message.success {
+  background: #D1FAE5;
+  color: #065F46;
+  border: 2px solid #10B981;
+}
+
+.form-message.error {
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 2px solid #EF4444;
+}
+
+/* CTA supplémentaire */
+.contact-cta {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+}
+
+.contact-cta h2 {
+  color: var(--white);
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-cta p {
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
