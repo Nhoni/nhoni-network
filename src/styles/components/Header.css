@@ -1,0 +1,21 @@
+/* Centre visuellement la nav */
+.nav-center {
+  gap: 1.5rem;
+}
+
+/* Logo / nom */
+.site-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
+/* Sur desktop : nav bien centrée */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
