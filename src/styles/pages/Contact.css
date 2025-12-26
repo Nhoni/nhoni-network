@@ -197,3 +197,17 @@
   .hero-subtitle { font-size: 1.4rem; padding: 0 1rem; }
   .contact-hero { padding: 6rem 0 4rem; }
 }
+
+.field-error {
+  display: block;
+  margin-top: 0.5rem;
+  color: #ef4444;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-field input[aria-invalid="true"],
+.form-field select[aria-invalid="true"],
+.form-field textarea[aria-invalid="true"] {
+  border-color: #ef4444;
+}
