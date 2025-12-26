@@ -18,7 +18,6 @@ function Header() {
             <li><Link to="/">Accueil</Link></li>
             <li><Link to="/services">Services</Link></li>
             <li><Link to="/portfolio">Réalisations</Link></li>
-            <li><Link to="/about">À propos</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>
         </nav>
@@ -44,7 +43,6 @@ function Header() {
             <li><Link to="/" data-bs-toggle="collapse" data-bs-target="#appleMobileMenu">Accueil</Link></li>
             <li><Link to="/services" data-bs-toggle="collapse" data-bs-target="#appleMobileMenu">Services</Link></li>
             <li><Link to="/portfolio" data-bs-toggle="collapse" data-bs-target="#appleMobileMenu">Réalisations</Link></li>
-            <li><Link to="/about" data-bs-toggle="collapse" data-bs-target="#appleMobileMenu">À propos</Link></li>
             <li><Link to="/contact" data-bs-toggle="collapse" data-bs-target="#appleMobileMenu">Contact</Link></li>
           </ul>
         </div>
