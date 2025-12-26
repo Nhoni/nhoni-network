@@ -1,4 +1,3 @@
-
 .apple-header {
   position: fixed;
   top: 0;
@@ -9,27 +8,28 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   background-color: rgba(255, 255, 255, 0.72);
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
-  z-index: 1030;
+  z-index: 1000;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
   transition: background-color 0.3s ease;
 }
 
-/* Fond sombre sur hero halo */
 .hero-vanta ~ .apple-header,
 .apple-header.scrolled {
   background-color: rgba(20, 20, 30, 0.8);
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Logo + Texte à gauche */
 .header-logo-text {
   height: 48px;
   padding: 0 1rem;
   color: inherit;
   text-decoration: none;
+  display: flex;
   align-items: center;
+  gap: 0.75rem;
+  position: relative;
 }
 
 .site-name {
@@ -38,14 +38,12 @@
   white-space: nowrap;
 }
 
-/* Masque le texte sur très petits écrans */
 @media (max-width: 480px) {
   .site-name {
     font-size: 1rem;
   }
 }
 
-/* Navigation desktop centrée – ≥992px */
 .header-nav-desktop {
   position: absolute;
   left: 50%;
@@ -73,64 +71,134 @@
   opacity: 1;
 }
 
-/* Burger mobile */
 .header-burger {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 44px;
-  height: 48px;
+  height: 44px;
   background: none;
   border: none;
-  padding: 0 1rem;
+  padding: 0;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .header-burger span {
   display: block;
   width: 18px;
-  height: 1px;
+  height: 1.5px;
   background: currentColor;
   margin: 3px 0;
+  transition: all 0.3s ease;
 }
 
-/* Menu mobile full-screen */
+.header-burger[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.header-burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.header-burger[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 .mobile-menu {
   position: fixed;
   top: 48px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(30px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  z-index: 999;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.mobile-menu.dark {
+  background: rgba(20, 20, 30, 0.3);
+}
+
+.mobile-menu nav {
+  width: 100%;
+  max-width: 100%;
 }
 
 .mobile-nav-links {
   list-style: none;
   margin: 0;
   padding: 0;
-  text-align: center;
+  width: 100%;
 }
 
 .mobile-nav-links li {
-  margin: 1.5rem 0;
+  margin: 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  line-height: 1;
 }
 
-.mobile-nav-links a {
-  font-size: 1.8rem;
-  color: inherit;
+.mobile-nav-links li:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu.dark .mobile-nav-links li {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-links button {
+  display: block;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1d1d1f;
   text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.2s ease;
+  border-radius: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  text-align: left;
 }
 
-.mobile-nav-links a:hover {
-  opacity: 1;
+.mobile-nav-links button:active {
+  background: rgba(0, 0, 0, 0.04);
+  transform: scale(0.98);
 }
 
-/* Version sombre mobile sur hero halo */
-.hero-vanta ~ .apple-header .mobile-menu {
-  background: rgba(20, 20, 30, 0.95);
+.mobile-menu.dark .mobile-nav-links button {
+  color: #f5f5f7;
+}
+
+.mobile-menu.dark .mobile-nav-links button:active {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 991px) {
+  .header-logo-text {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .mobile-nav-links button {
+    font-size: 1rem;
+    padding: 0.45rem 1rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .mobile-nav-links button {
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+  }
 }
