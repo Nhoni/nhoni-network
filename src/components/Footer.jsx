@@ -11,7 +11,7 @@ function Footer() {
 
           <div className="col-12">
             <p className="mb-0 small text-muted">
-            contact@nhoni.network
+            nhoni.network@gmail.com
             </p>
           </div>
         </div>
