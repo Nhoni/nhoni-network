@@ -1,150 +1,233 @@
-.portfolio-page {
-  width: 100%;
+.nhoni-portfolio-page {
+  background: #ffffff;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  padding-top: 100px; /* Pour navbar fixe */
+  min-height: 100vh;
 }
 
-.portfolio-header {
+/* Hero – grand titre centré */
+.portfolio-hero {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  padding: 8rem 0 6rem;
 }
 
-.portfolio-header h1 {
-  color: var(--primary);
-  margin-bottom: var(--spacing-sm);
+.hero-title {
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 0 0 2rem 0;
+  color: #1d1d1f;
 }
 
-.portfolio-header p {
-  font-size: 1.2rem;
-  color: var(--gray-dark);
-  max-width: 700px;
+.hero-subtitle {
+  font-size: 1.8rem;
+  max-width: 800px;
   margin: 0 auto;
+  opacity: 0.8;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-/* Filtres */
+/* Filtres – discrets et élégants */
+.portfolio-filters-section {
+  padding: 2rem 0 4rem;
+}
+
 .portfolio-filters {
   display: flex;
-  gap: var(--spacing-sm);
   justify-content: center;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  margin-bottom: var(--spacing-lg);
 }
 
-.filter-btn {
-  padding: var(--spacing-xs) var(--spacing-md);
-  background: var(--white);
-  border: 2px solid var(--primary);
-  color: var(--primary);
-  border-radius: var(--radius-md);
+.filter-button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
   font-weight: 600;
+  color: #6e6e73;
+  padding: 0.5rem 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--primary);
-  color: var(--white);
+.filter-button:hover {
+  color: #1d1d1f;
 }
 
-/* Grille de réalisations */
+.filter-button.active {
+  color: #1d1d1f;
+}
+
+.filter-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #7c3aed;
+  border-radius: 2px;
+}
+
+/* Grille de projets */
+.portfolio-grid-section {
+  padding-bottom: 8rem;
+}
+
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 3rem;
 }
 
-.portfolio-item {
-  background: var(--white);
-  border-radius: var(--radius-lg);
+.portfolio-card {
+  background: white;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
-  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
 }
 
-.portfolio-item:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+.portfolio-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(124, 58, 237, 0.15);
 }
 
-.portfolio-image {
+.card-media {
   width: 100%;
-  height: 250px;
-  background: var(--gray-light);
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.media-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f0eaff, #e8e0ff);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 4rem;
-  border-bottom: 3px solid var(--primary);
+  opacity: 0.6;
 }
 
-.portfolio-content {
-  padding: var(--spacing-md);
+.card-content {
+  padding: 2rem;
 }
 
-.portfolio-content h3 {
-  color: var(--primary);
-  margin-bottom: var(--spacing-xs);
-}
-
-.portfolio-category {
+.card-category {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: var(--primary-light);
-  color: var(--white);
-  border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: var(--spacing-sm);
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.1);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
 }
 
-.portfolio-content p {
-  color: var(--gray-dark);
-  font-size: 0.95rem;
-  line-height: 1.6;
+.card-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #1d1d1f;
 }
 
-/* Message si vide */
-.portfolio-empty {
-  text-align: center;
-  padding: var(--spacing-xl);
-  background: var(--gray-light);
-  border-radius: var(--radius-lg);
-}
-
-.portfolio-empty h3 {
-  color: var(--primary);
-  margin-bottom: var(--spacing-sm);
-}
-
-.portfolio-empty p {
-  color: var(--gray-dark);
-  margin-bottom: var(--spacing-md);
+.card-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #6e6e73;
+  margin: 0;
 }
 
 /* CTA */
 .portfolio-cta {
   text-align: center;
-  margin-top: var(--spacing-xl);
-  padding: var(--spacing-lg);
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-  color: var(--white);
-  border-radius: var(--radius-lg);
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: white;
+  margin: 6rem 0 0;
 }
 
 .portfolio-cta h2 {
-  color: var(--white);
-  margin-bottom: var(--spacing-sm);
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
 }
 
 .portfolio-cta p {
-  font-size: 1.1rem;
-  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  background: white;
+  color: #7c3aed;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
+  .hero-title {
+    font-size: 4rem;
+  }
+  .portfolio-cta h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #7c3aed;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  color: #6366f1;
+  transform: translateX(8px);
+}
+
+.project-link::after {
+  content: '';
+  margin-left: 0.5rem;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .card-image {
+  transform: scale(1.05);
 }
