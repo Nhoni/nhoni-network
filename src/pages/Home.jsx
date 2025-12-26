@@ -2,14 +2,6 @@ import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import '../styles/pages/Home.css'
 
-const AppleCard = ({ icon, title, text }) => (
-  <div className="apple-card h-100">
-    <div className="apple-icon">{icon}</div>
-    <h5 className="fw-semibold">{title}</h5>
-    <p>{text}</p>
-  </div>
-)
-
 function Home() {
   const [vantaEffect, setVantaEffect] = useState(null)
   const heroRef = useRef(null)
@@ -25,9 +17,9 @@ function Home() {
           minHeight: 200.00,
           minWidth: 200.00,
           baseColor: 0x7c3aed,       // Violet principal
-          backgroundColor: 0x000000, // Fond noir
-          amplitudeFactor: 2.0,      // Plus intense
-          size: 2.0                  // Taille du halo
+          backgroundColor: 0x000000, // Fond noir pour le halo
+          amplitudeFactor: 2.0,
+          size: 2.0
         })
       )
     }
@@ -38,8 +30,9 @@ function Home() {
   }, [vantaEffect])
 
   return (
-    <div className="home">
+    <main className="home">
 
+      {/* HERO – seul élément visible sur la page d'accueil */}
       <section className="hero-vanta" ref={heroRef}>
         <div className="hero-overlay"></div>
 
@@ -67,61 +60,7 @@ function Home() {
         </div>
       </section>
 
-      {/* VALEURS */}
-      <section className="section">
-        <div className="container">
-          <div className="row g-4">
-            <div className="col-md-4">
-              <AppleCard icon="🎯" title="Stratégie" text="Chaque projet est conçu pour atteindre vos objectifs" />
-            </div>
-            <div className="col-md-4">
-              <AppleCard icon="✨" title="Créativité" text="Une identité forte, cohérente et mémorable" />
-            </div>
-            <div className="col-md-4">
-              <AppleCard icon="⚡" title="Exigence" text="Qualité, précision et accompagnement humain" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="section section-light">
-        <div className="container">
-          <h2 className="section-title text-center">
-            Expertises
-          </h2>
-
-          <div className="row g-4 mt-4">
-            <div className="col-lg-3 col-md-6">
-              <AppleCard icon="💻" title="Web & UI" text="Sites modernes, rapides et responsives" />
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <AppleCard icon="🎨" title="Identité visuelle" text="Logo, flyers, branding" />
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <AppleCard icon="🎬" title="Vidéo" text="Montage & contenus promotionnels" />
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <AppleCard icon="📄" title="Documents" text="PDF, mise en page professionnelle" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section text-center">
-        <div className="container">
-          <div className="cta-box">
-            <h2>Donnons vie à votre projet</h2>
-            <p>Discutons ensemble de votre besoin</p>
-            <Link to="/contact" className="btn-main">
-              Me contacter
-            </Link>
-          </div>
-        </div>
-      </section>
-
-    </div>
+    </main>
   )
 }
 
