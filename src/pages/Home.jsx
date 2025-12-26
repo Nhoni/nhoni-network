@@ -24,7 +24,7 @@ function Home() {
           gyroControls: false,
           minHeight: 200.00,
           minWidth: 200.00,
-          baseColor: 0x7c3aed,       // Violet principal (comme ton thème)
+          baseColor: 0x7c3aed,       // Violet principal
           backgroundColor: 0x000000, // Fond noir
           amplitudeFactor: 2.0,      // Plus intense
           size: 2.0                  // Taille du halo
@@ -40,9 +40,7 @@ function Home() {
   return (
     <div className="home">
 
-      {/* HERO avec le vrai effet Halo Vanta.js (il bouge, pulse, réagit à la souris) */}
       <section className="hero-vanta" ref={heroRef}>
-        {/* Overlay sombre pour que le texte blanc soit bien lisible */}
         <div className="hero-overlay"></div>
 
         <div className="container text-center hero-content">
