@@ -1,125 +1,136 @@
+/* GLOBAL */
 .home {
+  background: #ffffff;
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+/* HERO avec vrai Halo Vanta.js */
+.hero-vanta {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Le canvas Vanta est injecté automatiquement – on le force en fond */
+.hero-vanta canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+}
+
+/* Overlay sombre pour lisibilité du texte */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Ajuste si besoin */
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: var(--spacing-xl) var(--spacing-md);
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-  color: var(--white);
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-xl);
+/* Contenu texte au-dessus */
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-sm);
-  font-weight: 800;
-}
-
-.hero .tagline {
-  font-size: 1.2rem;
-  margin-bottom: var(--spacing-sm);
-  font-weight: 600;
+.hero-label {
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  opacity: 0.9;
 }
 
-.hero .subtitle {
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  margin: 1.5rem 0;
+}
+
+.hero-subtitle {
+  max-width: 700px;
+  margin: 0 auto 2rem;
   font-size: 1.3rem;
-  margin-bottom: var(--spacing-md);
   opacity: 0.95;
 }
 
-.hero-buttons {
+.hero-actions {
   display: flex;
-  gap: var(--spacing-sm);
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: var(--spacing-md);
 }
 
-/* Services Section */
-.services-preview {
-  margin-bottom: var(--spacing-xl);
-}
+/* Le reste de ton CSS (sections, cartes, boutons, CTA) inchangé */
+.section { padding: 6rem 0; }
+.section-light { background: #f9fafb; }
+.section-title { font-size: 2.5rem; font-weight: 700; text-align: center; }
 
-.services-preview h2 {
+.apple-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
   text-align: center;
-  color: var(--primary);
-  margin-bottom: var(--spacing-md);
-  font-size: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
+.apple-card p { opacity: 0.8; }
+
+.apple-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 30px 60px rgba(124, 58, 237, 0.25);
 }
 
-/* Why Section */
-.why-section {
-  background: var(--gray-light);
-  padding: var(--spacing-lg) var(--spacing-md);
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-xl);
-  text-align: center;
+.apple-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+
+.btn-main {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.why-section h2 {
-  color: var(--primary);
-  margin-bottom: var(--spacing-md);
+.btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+  color: white;
 }
 
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-.why-item {
-  padding: var(--spacing-sm);
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
 }
 
-.why-item h3 {
-  color: var(--primary);
-  font-size: 1.2rem;
-  margin-bottom: var(--spacing-xs);
+.cta-box {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 32px;
 }
 
-/* CTA Section */
-.cta-section {
-  text-align: center;
-  padding: var(--spacing-lg);
-  background: var(--primary);
-  color: var(--white);
-  border-radius: var(--radius-lg);
-}
-
-.cta-section h2 {
-  margin-bottom: var(--spacing-sm);
-  color: var(--white);
-}
-
-.cta-section p {
-  font-size: 1.1rem;
-  margin-bottom: var(--spacing-md);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  
-  .hero .subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
+.cta-box h2 { font-size: 2.3rem; font-weight: 700; }
+.cta-box p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
