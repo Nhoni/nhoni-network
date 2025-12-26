@@ -1,21 +1,136 @@
-/* Centre visuellement la nav */
-.nav-center {
-  gap: 1.5rem;
+
+.apple-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.72);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  z-index: 1030;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
-/* Logo / nom */
+/* Fond sombre sur hero halo */
+.hero-vanta ~ .apple-header,
+.apple-header.scrolled {
+  background-color: rgba(20, 20, 30, 0.8);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Logo + Texte à gauche */
+.header-logo-text {
+  height: 48px;
+  padding: 0 1rem;
+  color: inherit;
+  text-decoration: none;
+  align-items: center;
+}
+
 .site-name {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 1.3rem;
+  font-weight: 600;
+  font-size: 1.1rem;
   white-space: nowrap;
 }
 
-/* Sur desktop : nav bien centrée */
-@media (min-width: 992px) {
-  .navbar-collapse {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+/* Masque le texte sur très petits écrans */
+@media (max-width: 480px) {
+  .site-name {
+    font-size: 1rem;
   }
+}
+
+/* Navigation desktop centrée – ≥992px */
+.header-nav-desktop {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-nav-links {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav-links a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.header-nav-links a:hover {
+  opacity: 1;
+}
+
+/* Burger mobile */
+.header-burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 44px;
+  height: 48px;
+  background: none;
+  border: none;
+  padding: 0 1rem;
+}
+
+.header-burger span {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  margin: 3px 0;
+}
+
+/* Menu mobile full-screen */
+.mobile-menu {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-nav-links li {
+  margin: 1.5rem 0;
+}
+
+.mobile-nav-links a {
+  font-size: 1.8rem;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.mobile-nav-links a:hover {
+  opacity: 1;
+}
+
+/* Version sombre mobile sur hero halo */
+.hero-vanta ~ .apple-header .mobile-menu {
+  background: rgba(20, 20, 30, 0.95);
 }

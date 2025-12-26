@@ -8,8 +8,9 @@ function Logo() {
         src="/logo.png" 
         alt="Nhoni Network" 
         className="logo" 
-      />
-      <span className="logo-text">Nhoni Network</span>
+      />          
+      <span className="site-name">NHONI NETWORK</span>
+
     </Link>
   )
 }
