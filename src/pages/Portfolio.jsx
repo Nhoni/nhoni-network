@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/pages/Portfolio.css'
+
 import parfumsVideo from '../assets/parfums inspiré de grandes marques.mp4'
 import choganThumbnail from '../assets/chogan_f.png'
+import aecv from '../assets/aecv.png'
+import monPortfolio from '../assets/mon_portfolio.png'
+import branding from '../assets/branding.png'
 
 function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('Tous')
@@ -15,22 +19,24 @@ function Portfolio() {
       title: 'Logo startup tech',
       category: 'Logo',
       description: 'Identité visuelle moderne pour une startup innovante',
-      imageUrl: 'https://cdn.prod.website-files.com/5de2db6d3719a1e2f3e4454c/6682aa19df64a278f889a65e_best-startup-logos.jpg'
+      imageUrl:
+        'https://cdn.prod.website-files.com/5de2db6d3719a1e2f3e4454c/6682aa19df64a278f889a65e_best-startup-logos.jpg'
     },
     {
       id: 2,
       title: 'Site Association',
       category: 'Web',
-      description: 'Site responsive élégant avec dons paypal intégrés',
-      imageUrl: '/src/assets/aecv.png',
-      link: 'https://aecv1.vercel.app'  
+      description: 'Site responsive élégant avec dons PayPal intégrés',
+      imageUrl: aecv,
+      link: 'https://aecv1.vercel.app'
     },
     {
       id: 3,
       title: 'Flyer événement culturel',
       category: 'Flyer',
       description: 'Design impactant pour un festival local',
-      imageUrl: 'https://as1.ftcdn.net/v2/jpg/02/52/12/62/1000_F_252126233_0zxMOCALq026zwrFArTHfClsRBfElKbc.jpg'
+      imageUrl:
+        'https://as1.ftcdn.net/v2/jpg/02/52/12/62/1000_F_252126233_0zxMOCALq026zwrFArTHfClsRBfElKbc.jpg'
     },
     {
       id: 4,
@@ -42,27 +48,28 @@ function Portfolio() {
       thumbnail: choganThumbnail
     },
     {
-  id: 5,
-  title: 'Branding Nhoni Network',
-  category: 'Logo & charte graphique',
-  description: 'Charte graphique complète et supports print',
-  imageUrl: '/src/assets/branding.png'
-},
+      id: 5,
+      title: 'Branding Nhoni Network',
+      category: 'Logo & charte graphique',
+      description: 'Charte graphique complète et supports print',
+      imageUrl: branding
+    },
     {
       id: 6,
-      title: 'Portfolio d\'une développeuse web',
+      title: "Portfolio d'une développeuse web",
       category: 'Web',
-      description: 'Portfolio d\'une développeuse web full stack',
-      imageUrl: '/src/assets/mon_portfolio.png',
-      link: 'https://mbemba-nhora-portfolio.vercel.app/' 
+      description: 'Portfolio d’une développeuse web full stack',
+      imageUrl: monPortfolio,
+      link: 'https://mbemba-nhora-portfolio.vercel.app/'
     }
   ]
 
   const categories = ['Tous', 'Web', 'Logo', 'Flyer', 'Vidéo']
 
-  const filteredProjects = activeFilter === 'Tous'
-    ? projects
-    : projects.filter(p => p.category === activeFilter)
+  const filteredProjects =
+    activeFilter === 'Tous'
+      ? projects
+      : projects.filter(project => project.category === activeFilter)
 
   const openVideoModal = (videoUrl) => {
     setCurrentVideo(videoUrl)
@@ -78,7 +85,6 @@ function Portfolio() {
 
   return (
     <main className="nhoni-portfolio-page">
-
       <section className="portfolio-hero">
         <div className="container text-center">
           <h1 className="hero-title">Réalisations</h1>
@@ -110,12 +116,13 @@ function Portfolio() {
             {filteredProjects.map(project => (
               <div key={project.id} className="portfolio-card">
                 <div className="card-media">
-                  <img 
-                    src={project.type === 'video' ? project.thumbnail : project.imageUrl} 
-                    alt={project.title} 
-                    className="card-image" 
+                  <img
+                    src={project.type === 'video' ? project.thumbnail : project.imageUrl}
+                    alt={project.title}
+                    className="card-image"
                   />
                 </div>
+
                 <div className="card-content">
                   <span className="card-category">{project.category}</span>
                   <h3 className="card-title">{project.title}</h3>
@@ -159,17 +166,15 @@ function Portfolio() {
 
       {showVideoModal && currentVideo && (
         <div className="video-modal-overlay" onClick={closeVideoModal}>
-          <div className="video-modal-wrapper" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="video-modal-wrapper"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button className="video-modal-close" onClick={closeVideoModal}>
               ✕
             </button>
             <div className="video-container">
-              <video 
-                controls 
-                autoPlay
-                className="modal-video"
-                key={currentVideo}
-              >
+              <video controls autoPlay className="modal-video" key={currentVideo}>
                 <source src={currentVideo} type="video/mp4" />
                 Votre navigateur ne supporte pas la lecture de vidéos.
               </video>
@@ -177,7 +182,6 @@ function Portfolio() {
           </div>
         </div>
       )}
-
     </main>
   )
 }
