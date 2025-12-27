@@ -177,7 +177,7 @@ function Contact() {
 
             <p className="form-footer">
               Ou écrivez-moi directement :{' '}
-              <a href="mailto:contact@nhoni.network">contact@nhoni.network</a>
+              <a href="mailto:contact@nhoni.network">nhoni.network@gmail.com</a>
             </p>
 
           </div>
