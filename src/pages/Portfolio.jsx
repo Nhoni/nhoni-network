@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/pages/Portfolio.css'
+import parfumsVideo from '../assets/parfums inspiré de grandes marques.mp4'
+import choganThumbnail from '../assets/chogan_f.png'
 
 function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('Tous')
+  const [showVideoModal, setShowVideoModal] = useState(false)
+  const [currentVideo, setCurrentVideo] = useState(null)
 
   const projects = [
     {
@@ -18,7 +22,7 @@ function Portfolio() {
       title: 'Site Association',
       category: 'Web',
       description: 'Site responsive élégant avec dons paypal intégrés',
-      imageUrl: 'https://themewagon.com/wp-content/uploads/2021/12/restoran.png',
+      imageUrl: '/src/assets/aecv.png',
       link: 'https://aecv1.vercel.app'  
     },
     {
@@ -33,23 +37,25 @@ function Portfolio() {
       title: 'Vidéo promotionnelle',
       category: 'Vidéo',
       description: 'Montage dynamique pour lancement produit',
-      imageUrl: 'https://static.vecteezy.com/system/resources/previews/041/387/387/non_2x/corporate-business-video-thumbnail-and-professional-web-banner-design-template-vibrant-yellow-and-blue-with-dynamic-color-thumbnails-on-live-streams-for-video-promotion-vector.jpg'
+      type: 'video',
+      videoUrl: parfumsVideo,
+      thumbnail: choganThumbnail
     },
     {
-      id: 5,
-      title: 'Branding association',
-      category: 'Logo',
-      description: 'Charte graphique complète et supports print',
-      imageUrl: 'https://cdn.dribbble.com/userupload/13198757/file/original-d8c1a37afb4fe9b790bb466677548f16.png?resize=400x0'
-    },
+  id: 5,
+  title: 'Branding Nhoni Network',
+  category: 'Logo & charte graphique',
+  description: 'Charte graphique complète et supports print',
+  imageUrl: '/src/assets/branding.png'
+},
     {
       id: 6,
-      title: 'Portfolio développeur',
+      title: 'Portfolio d\'une développeuse web',
       category: 'Web',
-      description: 'Portfolio d\'un dev',
-      imageUrl: 'https://cdn.dribbble.com/userupload/16803371/file/original-258538e13a4aa7698862929bb5dd831e.png?resize=752x&vertical=center',
-      link: 'https://portfolio-iota-one-22.vercel.app/' 
-    },
+      description: 'Portfolio d\'une développeuse web full stack',
+      imageUrl: '/src/assets/mon_portfolio.png',
+      link: 'https://mbemba-nhora-portfolio.vercel.app/' 
+    }
   ]
 
   const categories = ['Tous', 'Web', 'Logo', 'Flyer', 'Vidéo']
@@ -57,6 +63,18 @@ function Portfolio() {
   const filteredProjects = activeFilter === 'Tous'
     ? projects
     : projects.filter(p => p.category === activeFilter)
+
+  const openVideoModal = (videoUrl) => {
+    setCurrentVideo(videoUrl)
+    setShowVideoModal(true)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeVideoModal = () => {
+    setShowVideoModal(false)
+    setCurrentVideo(null)
+    document.body.style.overflow = 'unset'
+  }
 
   return (
     <main className="nhoni-portfolio-page">
@@ -92,12 +110,25 @@ function Portfolio() {
             {filteredProjects.map(project => (
               <div key={project.id} className="portfolio-card">
                 <div className="card-media">
-                  <img src={project.imageUrl} alt={project.title} className="card-image" />
+                  <img 
+                    src={project.type === 'video' ? project.thumbnail : project.imageUrl} 
+                    alt={project.title} 
+                    className="card-image" 
+                  />
                 </div>
                 <div className="card-content">
                   <span className="card-category">{project.category}</span>
                   <h3 className="card-title">{project.title}</h3>
                   <p className="card-description">{project.description}</p>
+
+                  {project.type === 'video' && (
+                    <button
+                      onClick={() => openVideoModal(project.videoUrl)}
+                      className="project-link video-button"
+                    >
+                      Voir la vidéo →
+                    </button>
+                  )}
 
                   {project.category === 'Web' && project.link && (
                     <a
@@ -125,6 +156,27 @@ function Portfolio() {
           </Link>
         </div>
       </section>
+
+      {showVideoModal && currentVideo && (
+        <div className="video-modal-overlay" onClick={closeVideoModal}>
+          <div className="video-modal-wrapper" onClick={(e) => e.stopPropagation()}>
+            <button className="video-modal-close" onClick={closeVideoModal}>
+              ✕
+            </button>
+            <div className="video-container">
+              <video 
+                controls 
+                autoPlay
+                className="modal-video"
+                key={currentVideo}
+              >
+                <source src={currentVideo} type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
 
     </main>
   )
